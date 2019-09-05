@@ -1,0 +1,83 @@
+{
+  "users": [
+    {
+      "username": "andi",
+      "password": "abcde",
+      "role": "user",
+      "id": 1
+    },
+    {
+      "username": "budi",
+      "password": "password",
+      "role": "user",
+      "id": 2
+    },
+    {
+      "username": "pradit",
+      "password": "password",
+      "role": "admin",
+      "id": 3
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "nama": "Kopi Lanang",
+      "harga": 47000,
+      "discount": 5,
+      "deskripsi": "Kopi Blend 1 Kg",
+      "ulasan": "(322)",
+      "img": "https://halloyahya.com/wp-content/uploads/2017/05/kopi-lanang.jpg"
+    },
+    {
+      "id": 2,
+      "nama": "Kopi Sidikalang",
+      "harga": 55000,
+      "discount": 10,
+      "deskripsi": "80% Arabica 20% Robusta",
+      "ulasan": "(242)",
+      "img": "https://halloyahya.com/wp-content/uploads/2017/05/Kopi-Sidikalang.jpg"
+    },
+    {
+      "id": 3,
+      "nama": "Kopi Jawa",
+      "harga": 35000,
+      "discount": 5,
+      "deskripsi": "Bubuk Kopi Robusta Jawa",
+      "ulasan": "(152)",
+      "img": "https://halloyahya.com/wp-content/uploads/2017/05/biji-kopi-jawa.jpg"
+    }
+  ],
+  "cart": [
+    {
+      "productId": 2,
+      "userId": 3,
+      "quantity": 0,
+      "price": 55000,
+      "img": "https://halloyahya.com/wp-content/uploads/2017/05/Kopi-Sidikalang.jpg",
+      "discount": 10,
+      "productName": "Kopi Sidikalang",
+      "id": 1
+    },
+    {
+      "productId": 1,
+      "userId": 3,
+      "quantity": 0,
+      "price": 47000,
+      "img": "https://halloyahya.com/wp-content/uploads/2017/05/kopi-lanang.jpg",
+      "discount": 5,
+      "productName": "Kopi Lanang",
+      "id": 2
+    },
+    {
+      "productId": 3,
+      "userId": 2,
+      "quantity": 0,
+      "price": 35000,
+      "img": "https://halloyahya.com/wp-content/uploads/2017/05/biji-kopi-jawa.jpg",
+      "discount": 5,
+      "productName": "Kopi Jawa",
+      "id": 3
+    }
+  ]
+}

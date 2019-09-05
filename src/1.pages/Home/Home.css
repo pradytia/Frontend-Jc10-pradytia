@@ -1,0 +1,25 @@
+
+.holiday{
+    border-bottom: 1px solid #ccc;
+    color:black;
+    
+}
+
+.atur {
+    height: 380px;
+}
+
+.discount{
+    background-color: red;
+    width: 20%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    right: 0;
+    top: 20px;
+}
+
+img {
+    cursor: pointer;
+}
