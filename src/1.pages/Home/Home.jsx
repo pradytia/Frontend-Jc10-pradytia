@@ -7,10 +7,8 @@ import ProductBox from '../../2.component/ProductBox';
 import Carousel from '../../2.component/Carousel';
 import Card from '../../2.component/Card';
 import FooterPage from '../Footer/Footer';
-
-
-
-
+import News from '../../2.component/News';
+import New2 from '../../2.component/New2';
 
 
 class Home extends Component {
@@ -48,18 +46,21 @@ class Home extends Component {
         return (
 
             <div> 
-                <Carousel/>
+                <Carousel/>         
+                <div className="container mt-5 holiday" style={{fontFamily:'Apple Chancery, Comic Sans MS, Lucida Handwriting', fontWeight:'bold', color:'orange'}}>
+                     <h3>COFFE SHOP</h3>
+                </div>
                 <div className="container">
                     <div className="row justify-content-center">
                     {this.renderData()}
                     </div> 
                 </div>
-                <div className="container mt-5 holiday" style={{fontFamily:'ChunkFiveRegular', fontWeight:'bolder', color:'brown'}}>
-                     <h3>PAKET USAHA</h3>
+                <News/>
+                <div className="container mt-5 holiday" style={{fontFamily:'Apple Chancery, Comic Sans MS, Lucida Handwriting', fontWeight:'bold', color:'orange'}}>
+                    <h3>PAKET USAHA</h3>
                 </div>
-                <div className='container'>
-                <Card/>
-                </div>
+                <Card/><br/><br/>
+                <New2/>
                 <br/><br/>
                 <FooterPage/>
             </div>

@@ -5,6 +5,7 @@ const INITIAL_STATE = {
             username : '',
             role : '',
             loading : false,
+            cookie  : false,
             msg     : ''
             
 }
@@ -20,6 +21,10 @@ export default (state = INITIAL_STATE, action)=>{
                 return {...INITIAL_STATE, loading : true}
             case 'USERNAME_TAKEN' :
                 return{...INITIAL_STATE, msg : action.hasil}
+            case 'KEEP_LOGIN' :
+                return{...INITIAL_STATE, username : action.payload.username, role : action.payload.role, id : action.payload.id, cookie : true}
+            case 'RESET_USER' :
+                return {...INITIAL_STATE}
             default :
                 return state
         }

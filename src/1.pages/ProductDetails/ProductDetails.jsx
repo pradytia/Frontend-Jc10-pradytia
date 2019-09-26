@@ -11,6 +11,7 @@ class ProductDetails extends Component {
 
     state = {
         productDetail : [],
+        qtyInput      : 1,
         editMode      : false
 
     }
@@ -31,18 +32,24 @@ class ProductDetails extends Component {
     }
 
 
+    addToCart = () =>{
+        
+    }
+
+
     render() {
        var {id, nama, harga, discount, img, deskripsi} = this.state.productDetail
         return (
-            <div className='container mt-3'>
+            <div className='container mt-3 pt-3'>
                 <div className="row">
-                    <div className="col-md-4">
-                        <div className="card" style={{width:'100%'}}>
-                                <img className="card-img-top" src={img} alt='card'/>
+                    <div className="col-md-4 pr-5 pt-2">
+                        <div className="card" style={{width:'120%'}}>
+                                <img className="card-img-top" src={img} alt='card' />
                         </div>
                     </div>
-                    <div className="col-md-8">
-                        <h1  style={{fontWeight:'700', color:'#606060', fontSize:'30px'}}>{nama}</h1>
+                    <div className="col-md-8 pl-5">
+                        <h1  style={{fontWeight:'700', color:'#606060', fontSize:'30px', paddingTop:'1%'}}>
+                        {nama}</h1>
                         <div style={{backgroundColor : 'red',
                                      width           : '50px',
                                      height          : '22px',
@@ -64,11 +71,11 @@ class ProductDetails extends Component {
                         <div className="row">
                             <div className="col-2">
                                 <div style={{fontWeight:'700', marginTop:'15px', color:'#606060', fontSize:'15px'}}>Jumlah</div>
-                                <input type='number' className='form-control' style={{marginTop:'10px', width:'60px'}}/>
+                                <input type='number' className='form-control' value={this.state.qtyInput} style={{marginTop:'10px', width:'60px'}}/>
                             </div>
                             <div className="col-6">
                             <div style={{fontWeight:'700', marginTop:'15px', color:'#606060', fontSize:'15px'}}>Catatan Untuk Penjual (Opsional)</div>
-                                <input type='text' className='form-control' style={{marginTop:'10px'}} placeholder='Contoh: Biji Kopi, Bubuk Sedang '/>
+                                <input type='text' className='form-control' style={{marginTop:'10px'}} placeholder='Contoh: Warna Putih, Ukuran XL '/>
                             </div>
                         </div>
                         <div className="row mt-3">
@@ -77,19 +84,20 @@ class ProductDetails extends Component {
                             </div>
                         </div>
                         <div className="row mt-2">
-                            <div className="col-md-4">
+                            <div className="col-md-6">
                                 {
                                     this.state.username
                                     ?
-                                    <input type='button'value='Tambah Keranjang' className='btn btn-success btn-block'/>
+                                    <input type='button'value='Tambah Keranjang' className=' btn-success'/>
                                     :
                               <Link to='/login' style={{textDecoration:'none'}} >
-                                <input type='button'value='Tambah Keranjang' className='btn btn-success btn-block'/>
+                                <input type='button'value='Tambah Keranjang' className='btn btn-success'/>
                               </Link>
                                 }
                             </div>
                         </div>
-                        {this.state.editMode
+                        {
+                            this.state.editMode
                             ?
                         
                         <Modal isOpen={this.state.editMode}>

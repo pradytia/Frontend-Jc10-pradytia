@@ -9,6 +9,7 @@ class Cart extends Component {
         cartData : []
     }
 
+    
     getDataCart = (id) =>{
         Axios.get(urlApi + 'cart?userId=' + id)
         .then(res=>{

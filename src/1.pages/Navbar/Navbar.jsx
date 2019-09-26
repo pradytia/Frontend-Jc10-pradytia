@@ -4,45 +4,49 @@ import './Navbar.css';
 import {Link} from 'react-router-dom';
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBDropdown,
     MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon } from "mdbreact";
+import Cookie from 'universal-cookie';
+import {resetUser} from '../../redux/1.actions'
+
+let cookieObj = new Cookie()
+
 
 class NavbarCom extends Component {
 
     state = {
         navbarOpen : false
     }
+
+    onBtnLogOut = () =>{
+        cookieObj.remove('userData')
+        this.props.resetUser()
+    }
+
     render() {
         return (
             <div>
-                <MDBNavbar  expand='lg' className='navbar-color navbar'>
-                    <MDBNavLink to='/'>
-                    <MDBNavbarBrand href='/' className='pt-2 '>
-                        <h5 className='judul'>ngopiKuy <i className="fas fa-mug-hot"></i>
-                        </h5>
-                       </MDBNavbarBrand>
-                    </MDBNavLink>
+
+                <MDBNavbar  expand='md' className='navbar-color navbar'>
                     <MDBNavbarToggler onClick={()=>this.setState({navbarOpen : !this.state.navbarOpen})}/>
-                    <MDBCollapse navbar>
-                        <MDBNavbarNav right>
+                    <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
+                        <MDBNavbarNav right className='pr-3 text-center pl-3'>
                             {
                                 this.props.nama.username && this.props.nama.role
                                 ?
                                 <>
+                            <MDBNavItem>
+                                <MDBNavLink style={{color:'white', fontSize:'18px'}}></MDBNavLink>
+                            </MDBNavItem>
                             <MDBNavItem>                             
-                              <MDBNavLink to='/' style={{color:'white', fontSize:'18px'}}><i className="fas fa-home"></i> Home</MDBNavLink>                          
+                              <MDBNavLink to='/' style={{color:'white', fontSize:'18px', letterSpacing:'2px', wordSpacing:'5px'}}><i className="fas fa-home"></i> Home</MDBNavLink>                          
                             </MDBNavItem>
                             <MDBNavItem>
-                                <MDBNavLink style={{color:'white', fontSize:'18px'}}>{this.props.nama.username}</MDBNavLink>
-                            </MDBNavItem>
-                            <MDBNavItem>
-                             <MDBNavLink style={{color:'white', fontSize:'18px'}}>{this.props.nama.role}</MDBNavLink>                               
-                            </MDBNavItem>
-                            <MDBNavItem>
-                                    <MDBNavLink href='/' style={{color:'white', fontSize:'18px'}}><i class="fas fa-sign-in-alt"></i></MDBNavLink>                             
+                                    <MDBNavLink href='/promo' style={{color:'white', fontSize:'18px',wordSpacing:'5px'}}><i class="fas fa-sign-in-alt"></i> Paket Usaha</MDBNavLink>                             
                             </MDBNavItem>
                          
                                 <MDBDropdown>
-                                <MDBDropdownToggle nav caret style={{color:'white'}}>
-                                    <MDBIcon icon="user" style={{color:'white'}}/>
+                                <MDBDropdownToggle nav caret style={{color:'white', fontSize:'18px'}}>
+                                    <MDBIcon icon="user" style={{color:'white', borderRadius:'50px',letterSpacing:'2px', wordSpacing:'5px' }}/> &nbsp;
+                                    {this.props.nama.username}
                                     </MDBDropdownToggle>
                                 <MDBDropdownMenu right>
                                     <MDBDropdownItem>
@@ -55,10 +59,8 @@ class NavbarCom extends Component {
                                             Register
                                         </MDBNavLink>
                                     </MDBDropdownItem>
-                                    <MDBDropdownItem>
-                                        <MDBNavLink>
-                                            Logout
-                                        </MDBNavLink>
+                                    <MDBDropdownItem onClick={this.onBtnLogOut}>                                      
+                                            Logout                                     
                                         </MDBDropdownItem>
                                 </MDBDropdownMenu>
                                 </MDBDropdown>
@@ -66,15 +68,15 @@ class NavbarCom extends Component {
                             :
                                 <>
                             <MDBNavItem>
-                                <MDBNavLink to='/' style={{color:'white', fontSize:'18px'}}><i className="fas fa-home"></i> Home</MDBNavLink>
+                                <MDBNavLink className='pr-3' to='/' style={{color:'white', fontSize:'18px'}}><i className="fas fa-home"></i> Home</MDBNavLink>
                             </MDBNavItem>
                             <MDBNavItem>
-                                <MDBNavLink to='/promo'  style={{color:'white', fontSize:'18px'}}>
+                                <MDBNavLink className='pr-3' to='/promo'  style={{color:'white', fontSize:'18px'}}>
                                    <i className="fas fa-tag"></i> Paket Usaha
                                 </MDBNavLink>
                             </MDBNavItem>
                             <MDBNavItem>
-                                    <MDBNavLink href='/' style={{color:'white', fontSize:'18px'}}>
+                                    <MDBNavLink  className='pr-3' href='/' style={{color:'white', fontSize:'18px'}}>
                                         <i className="fas fa-sign-in-alt"></i> Coffe shop
                                     </MDBNavLink>                             
                             </MDBNavItem>
@@ -85,7 +87,7 @@ class NavbarCom extends Component {
                             </MDBNavItem>
                             <MDBDropdown>
                                     <MDBDropdownToggle nav caret style={{color:'white'}}>
-                                    <MDBIcon icon="user" style={{color:'white'}}/>
+                                    <MDBIcon icon="user" style={{color:'white'}} className='justify-content-center pl-3'/>
                                     </MDBDropdownToggle>
                                 <MDBDropdownMenu right>
                                     <MDBDropdownItem>
@@ -114,4 +116,4 @@ const map = (state) => {
     return {nama: state.iniUser}
 }
 
-export default connect(map)(NavbarCom);
+export default connect(map, {resetUser})(NavbarCom);

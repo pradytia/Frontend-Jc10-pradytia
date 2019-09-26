@@ -1,10 +1,13 @@
 import React from "react";
+import './Footer.css'
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 
 const FooterPage = () => {
   return (
-    <MDBFooter color="brown" className="font-small pt-4 mt-4">
+    <MDBFooter className="font-small pt-4 mt-4 foot">
+
       <MDBContainer fluid className="text-center text-md-left">
+
         <MDBRow>
           <MDBCol md="12">
             <h4 className="title text-center">ngopiKuy  <i className="fas fa-mug-hot"></i></h4>
@@ -21,31 +24,19 @@ const FooterPage = () => {
             </div>
             </div>
             
-          </MDBCol>
-          {/* <MDBCol md="6">
-            <h5 className="title">Links</h5>
-            <ul>
-              <li className="list-unstyled">
-                <a href="#!">Link 1</a>
-              </li>
-              <li className="list-unstyled">
-                <a href="#!">Link 2</a>
-              </li>
-              <li className="list-unstyled">
-                <a href="#!">Link 3</a>
-              </li>
-              <li className="list-unstyled">
-                <a href="#!">Link 4</a>
-              </li>
-            </ul>
-          </MDBCol> */}
+          </MDBCol>  
         </MDBRow>
       </MDBContainer>
+
       <div className="footer-copyright text-center py-3">
+
         <MDBContainer fluid>
-          &copy; {new Date().getFullYear()} Copyright: <a href="/"> ngopiKuy </a>
+          &copy; {new Date().getFullYear()} Copyright: <a href="/"> ngopiKuy <i className="fas fa-mug-hot"></i> </a>
         </MDBContainer>
+        
       </div>
+
+      
     </MDBFooter>
   );
 }

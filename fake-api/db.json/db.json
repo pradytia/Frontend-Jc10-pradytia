@@ -1,83 +1,101 @@
 {
+
   "users": [
     {
       "username": "andi",
       "password": "abcde",
-      "role": "user",
-      "id": 1
+      "role"    : "user",
+      "id"      : 1
     },
     {
       "username": "budi",
       "password": "password",
-      "role": "user",
-      "id": 2
+      "role"    : "user",
+      "id"      : 2
     },
     {
       "username": "pradit",
       "password": "password",
-      "role": "admin",
-      "id": 3
+      "role"    : "admin",
+      "id"      : 3
     }
   ],
+
   "products": [
     {
-      "id": 1,
-      "nama": "Kopi Lanang",
-      "harga": 47000,
-      "discount": 5,
-      "deskripsi": "Kopi Blend 1 Kg",
-      "ulasan": "(322)",
-      "img": "https://halloyahya.com/wp-content/uploads/2017/05/kopi-lanang.jpg"
+      "id"        : 1,
+      "nama"      : "Espresso Maker",
+      "harga"     : 1200000,
+      "discount"  : 5,
+      "deskripsi" : "Model : Signature Chrome",
+      "ulasan"    : "(322)",
+      "img"       : "https://s-ecom.ottenstatic.com/original/5c628f15adbd4317294594.jpg"
     },
     {
-      "id": 2,
-      "nama": "Kopi Sidikalang",
-      "harga": 55000,
-      "discount": 10,
-      "deskripsi": "80% Arabica 20% Robusta",
-      "ulasan": "(242)",
-      "img": "https://halloyahya.com/wp-content/uploads/2017/05/Kopi-Sidikalang.jpg"
+      "id"        : 2,
+      "nama"      : "Pour Over Stainless",
+      "harga"     : 775000,
+      "discount"  : 10,
+      "deskripsi" : "Kapasitas : 2 Cups",
+      "ulasan"    : "(242)",
+      "img"       : "https://s-ecom.ottenstatic.com/original/5a1bbc9ac30fe758157900.jpg"
     },
     {
-      "id": 3,
-      "nama": "Kopi Jawa",
-      "harga": 35000,
-      "discount": 5,
-      "deskripsi": "Bubuk Kopi Robusta Jawa",
-      "ulasan": "(152)",
-      "img": "https://halloyahya.com/wp-content/uploads/2017/05/biji-kopi-jawa.jpg"
+      "id"        : 3,
+      "nama"      : "Vietnam Drip XL",
+      "harga"     : 95000,
+      "discount"  : 5,
+      "deskripsi" : "Material : Stainless Steel",
+      "ulasan"    : "(152)",
+      "img"       : "https://s-ecom.ottenstatic.com/original/56485085866c1.jpg"
+    },
+    {
+      "id"        : 4,
+      "nama"      : "Delter-Coffee Press",
+      "harga"     : 540000,
+      "discount"  : 5,
+      "deskripsi" : "Material : BPA Free",
+      "ulasan"    : "(52)",
+      "img"       : "https://s-ecom.ottenstatic.com/original/5c6234fde74b0382323483.jpg"
+    },
+    {
+      "id"        : 5,
+      "nama"      : "Motta Milk Jug Black 350ml",
+      "harga"     : 450500,
+      "discount"  : 5,
+      "deskripsi" : "Bahan : Teflon Black",
+      "ulasan"    : "(112)",
+      "img"       : "https://s-ecom.ottenstatic.com/original/5797267cbcb50.jpg"
+    },
+    {
+      "id"        : 6,
+      "nama"      : "Measuring Plastic Spoons",
+      "harga"     : 40000,
+      "discount"  : 5,
+      "deskripsi" : "Bahan : Plastk",
+      "ulasan"    : "(167)",
+      "img"       : "https://s-ecom.ottenstatic.com/original/1069.jpg"
     }
   ],
-  "cart": [
+
+  "cart": [],
+
+  "history"  : [],
+
+  "paketUsaha"   : [
     {
-      "productId": 2,
-      "userId": 3,
-      "quantity": 0,
-      "price": 55000,
-      "img": "https://halloyahya.com/wp-content/uploads/2017/05/Kopi-Sidikalang.jpg",
-      "discount": 10,
-      "productName": "Kopi Sidikalang",
-      "id": 1
+      "id"        : 1,
+      "nama"      : "PAKET cafe barista hemat",
+      "harga"     : "2926300",
+      "deskirpsi" : "Paket barista hemat untuk buka usaha",
+      "img"       : "https://s-ecom.ottenstatic.com/original/5d400304aee3b678838377.jpg"
     },
     {
-      "productId": 1,
-      "userId": 3,
-      "quantity": 0,
-      "price": 47000,
-      "img": "https://halloyahya.com/wp-content/uploads/2017/05/kopi-lanang.jpg",
-      "discount": 5,
-      "productName": "Kopi Lanang",
-      "id": 2
-    },
-    {
-      "productId": 3,
-      "userId": 2,
-      "quantity": 0,
-      "price": 35000,
-      "img": "https://halloyahya.com/wp-content/uploads/2017/05/biji-kopi-jawa.jpg",
-      "discount": 5,
-      "productName": "Kopi Jawa",
-      "id": 3
+      "id"        : 2,
+      "nama"      : "PAKET cafe murah",
+      "harga"     : "4509000",
+      "deskirpsi" : "Paket cafe murah Free Crema Espresso 500g",
+      "img"       : "https://s-ecom.ottenstatic.com/original/5d4148eb5bc4b109313651.jpg"
     }
   ]
 }

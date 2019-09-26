@@ -1,8 +1,8 @@
 .navbar-color {
-    background:brown; 
-    width: 100%;
-    height: 80px;
-    color: sad
+    background: darkslategrey;  
+    /* width: 100%;
+    height: 80px; */
+    text-align: center;
 }
 
 .judul{
@@ -11,4 +11,7 @@
     justify-content: center
     
 }
+li {
+    border-right: 1px solid #bbb;
+  }
 

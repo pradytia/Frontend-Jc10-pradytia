@@ -6,7 +6,7 @@ import './style.css'
 
 const ProductBox = (props) => {
     return (
-        <div className='card col-md-3 m-3 mt-5' style={{width:'18rem'}}>
+        <div className='card col-md-3 m-3 mt-5' >
             <Link to={'/product-details/' + props.id}>
             <img src={props.img} height='200px' className='card-img top img' alt='Card'/>
             </Link>
@@ -26,7 +26,9 @@ const ProductBox = (props) => {
             </div>
             <div className="card-footer">
                  <Link to={'/product-details/' + props.id}>
-                <input type='button' value='Add To Cart' className='btn btn-primary btn-block'/>
+                     <center>
+                        <h3 className="fas fa-shopping-cart" style={{color:'green'}}/>
+                     </center>
                 </Link>
             </div>
         </div>

@@ -5,6 +5,7 @@ class Card extends Component {
         return (
 
             <div className='container satu mt-5'>
+                
                 <div className="row">
                     <div className="col-4">
                 <div className="card">

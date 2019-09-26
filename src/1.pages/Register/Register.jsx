@@ -5,6 +5,10 @@ import {connect} from 'react-redux'
 import {onRegister} from '../../redux/1.actions'
 import swal from 'sweetalert'
 import {Link} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
+import Cookie from 'universal-cookie'
+
+let cookieObj = new Cookie()
 
 class Register extends Component {
 
@@ -12,12 +16,26 @@ class Register extends Component {
         registerUsername : '',
         registerEmail    : '',
         registerPassword : '',
-        repeatPassword   : ''
+        repeatPassword   : '',
+        isSame           : true
 
     }
     
+    componentWillReceiveProps(newProps){
+      cookieObj.set('userData', newProps.username, {path:'/'})
+    }
+
+
+
 
     onRegisterBtnHandler = () =>{
+
+      // if(this.state.registerUsername === '' || this.state.registerEmail ==='' || this.state.registerPassword ===''
+      //  || this.state.repeatPassword === ''){
+      //     this.setState({isSame : false})
+        
+      //  }
+
         let userObj = {
             username : this.state.registerUsername,
             email    : this.state.registerEmail,
@@ -27,6 +45,11 @@ class Register extends Component {
     }
 
     render() {
+
+      if(this.props.username !==''){
+        return <Redirect to='/'/>
+      }
+
         return (
         <div className='login-box'>
           <h1>Register</h1>
@@ -49,11 +72,9 @@ class Register extends Component {
           {
             !this.props.isLoading
             ?
-            <Link to='/'>
             <input type='button' value='Register' onClick={this.onRegisterBtnHandler} className='btn btn-success mt-4'/>
-            </Link>
             :
-            <h3>{this.props.message}</h3>
+            <input type='button' value='Register' onClick={()=> swal('Failed', 'Silahkan Coba lagi', 'error')} className='btn btn-success mt-4'/>
           }
         </div>
         )
@@ -63,7 +84,8 @@ class Register extends Component {
 const mapStateToprops = (state) =>{
   return{
       message   : state.iniUser.msg,
-      isLoading : state.iniUser.loading
+      isLoading : state.iniUser.loading, 
+      username :  state.iniUser.username
   }
 }
 

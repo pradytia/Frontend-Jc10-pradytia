@@ -29,7 +29,7 @@ export const onLogin = (userInput) =>{
                     }
                 })
             }else{
-                swal('akun tidak dikenal', 'error')
+                swal('akun tidak dikenal', 'Silahkan coba lagi', 'warning')
             }
          
         })
@@ -51,17 +51,20 @@ export const onRegister = (userObject) =>{
     Axios.get(urlApi + 'users', {
         params : {
             username : userObject.username,
-            password : userObject.password
+            role     : 'user'
         }
     })
     .then(res=>{
+
+
         if(res.data.length > 0){
-        dispatch({
-            type : 'USERNAME_TAKEN',
-            hasil : 'Username sudah ada bos'
-        })
-        }else{
-            userObject.role = 'role'
+        // dispatch({
+        //     type : 'USERNAME_TAKEN',
+        //     hasil : 'Username sudah ada bos'
+        // })
+            swal('Usernama sudah ada', 'Silahkan plih yang lain', 'info')
+        }else if(res.data.length === 0){
+            userObject.role = 'user'
             Axios.post(urlApi + 'users', userObject)
             .then(res=>{
                 dispatch({
@@ -83,5 +86,32 @@ export const onRegister = (userObject) =>{
         console.log(err)
     })
 
+    }
+}
+
+export const keepLogin = (cookieData) =>{
+    return(dispatch)=>{
+       Axios.get(urlApi + 'users', {params:{username : cookieData}})
+       .then(res=>{
+        dispatch({
+            type : 'KEEP_LOGIN',
+            payload : {
+                username : res.data[0].username,
+                role : res.data[0].role,
+                id : res.data[0].id
+            }
+        })
+       })
+       .catch(err=>{
+           console.log(err)
+       })
+    }
+}
+
+export const resetUser = () =>{
+    return(dispatch)=>{
+        dispatch({
+            type : 'RESET_USER'
+        })
     }
 }

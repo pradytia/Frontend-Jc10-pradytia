@@ -5,6 +5,9 @@ import {onLogin} from '../../redux/1.actions';
 import {connect} from 'react-redux';
 import swal from 'sweetalert';
 import {Redirect} from 'react-router-dom'
+import Cookie from 'universal-cookie'
+
+let cookieObj = new Cookie()
 
 class Login extends Component {
 
@@ -12,6 +15,11 @@ class Login extends Component {
         loginUsername : '',
         loginPassword : ''
     }
+
+    componentWillReceiveProps(newProps){
+        cookieObj.set('userData', newProps.username, {path:'/'})
+    }
+
 
     onBtnLogin = () =>{
         let tampungUser = {

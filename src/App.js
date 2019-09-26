@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import {withRouter, Route, Switch} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,31 +12,49 @@ import ProductDetails from './1.pages/ProductDetails/ProductDetails';
 import Cart from './1.pages/Cart/Cart';
 import AdminDashboard from './1.pages/Admin/AdminDashboard';
 import Auth from './1.pages/Auth/Auth';
+import {connect} from 'react-redux'
+import Cookie from 'universal-cookie';
+import {keepLogin} from './redux/1.actions'
 
 
+let cookieObj = new Cookie()
+
+class App extends Component {
 
 
+ componentDidMount(){
+   let cookieVar = cookieObj.get('userData')
+   if(cookieVar){
+      this.props.keepLogin(cookieVar)
+   }
+ } 
 
+  render(){
+    return(
 
-// import Icon from '@material-ui/core/Icon'
-
-function App() {
-  return (
      <div>
         <NavbarCom/>
         <Switch>
           <Route path='/' component={Home} exact/>
+          <Route path='/login' component={Login} exact/>
+          <Route path='/register' component={Register} exact/>
           <Route path='/cart' component={Cart} exact/>
           <Route path='/admin/dashboard' component={AdminDashboard} exact/>
           <Route path='/promo' component={Promo} exact/>
-          <Route path='/login' component={Login} exact/>
-          <Route path='/register' component={Register} exact/>
           <Route path='/product-details/:id' component={ProductDetails} exact/>
 
         </Switch>
         {/* <Footer/> */}
     </div>
-  );
+    )
+  }  
 }
 
-export default withRouter(App);
+// const mapStateToProps = (state) =>{
+//   return{
+//     globalCookie : state.user.cookie
+//   }
+// }
+
+
+export default connect(null, {keepLogin})(withRouter(App));
